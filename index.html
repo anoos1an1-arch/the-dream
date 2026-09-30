@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ذا دريـم | AnasX</title>
+  <meta name="description" content="ذا دريـم — روابط AnasX">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <style>
+    :root{
+      --bg:#030303; --panel:rgba(13,13,15,.78); --red:#ff1f3d; --red2:#a8001b;
+      --white:#fff; --muted:#a9a9b2; --line:rgba(255,31,61,.22);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
+    body{overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    .scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;background:
+      radial-gradient(circle at 50% 20%,rgba(255,31,61,.12),transparent 32%),
+      radial-gradient(circle at 10% 85%,rgba(255,31,61,.08),transparent 28%),
+      #030303}
+    .grid{position:absolute;inset:-20%;opacity:.25;background-image:
+      linear-gradient(rgba(255,31,61,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,31,61,.08) 1px,transparent 1px);
+      background-size:55px 55px;transform:perspective(500px) rotateX(58deg) translateY(28%);transform-origin:center bottom;
+      animation:gridMove 13s linear infinite}
+    @keyframes gridMove{to{background-position:0 55px,55px 0}}
+    .orb{position:absolute;border:1px solid rgba(255,31,61,.18);border-radius:50%;filter:blur(.2px);animation:float 10s ease-in-out infinite}
+    .orb.a{width:420px;height:420px;right:-130px;top:5%}
+    .orb.b{width:260px;height:260px;left:-90px;bottom:5%;animation-delay:-4s}
+    @keyframes float{50%{transform:translateY(-25px) scale(1.03)}}
+    .beam{position:absolute;width:2px;height:45vh;background:linear-gradient(transparent,var(--red),transparent);filter:blur(1px);opacity:.55;transform:rotate(35deg);animation:beam 7s linear infinite}
+    .beam.one{right:12%;top:-20%}.beam.two{left:18%;top:30%;animation-delay:-3s;opacity:.3}
+    @keyframes beam{to{transform:translateY(120vh) rotate(35deg)}}
+
+    main{position:relative;z-index:2;width:min(940px,92%);margin:0 auto;padding:62px 0 80px}
+    header{text-align:center;margin-bottom:42px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);
+      border-radius:999px;background:rgba(255,31,61,.06);color:#ff7385;font-size:12px;letter-spacing:.8px}
+    h1{font-size:clamp(42px,9vw,86px);line-height:.9;margin:22px 0 12px;font-weight:950;letter-spacing:-3px;
+      text-shadow:0 0 18px rgba(255,31,61,.55),0 0 55px rgba(255,31,61,.2)}
+    .sub{color:var(--muted);margin:0;font-size:14px}
+    .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:22px}
+    .card{position:relative;min-height:120px;padding:24px;border:1px solid var(--line);border-radius:22px;
+      background:linear-gradient(145deg,rgba(20,20,23,.9),rgba(6,6,7,.78));overflow:hidden;
+      box-shadow:0 18px 45px rgba(0,0,0,.42),inset 0 0 28px rgba(255,31,61,.035);
+      transform:translateZ(0);transition:.25s ease;isolation:isolate}
+    .card:before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent 25%,rgba(255,31,61,.35),transparent 65%);
+      transform:translateX(-120%);transition:.5s;z-index:-1}
+    .card:hover{transform:translateY(-7px) rotateX(2deg);border-color:rgba(255,31,61,.65);box-shadow:0 24px 60px rgba(255,0,35,.14),0 0 28px rgba(255,31,61,.12)}
+    .card:hover:before{transform:translateX(120%)}
+    .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;margin-bottom:17px;
+      background:linear-gradient(145deg,#ff2846,#690012);box-shadow:0 9px 24px rgba(255,31,61,.24);font-size:21px;font-weight:900}
+    .name{font-size:20px;font-weight:850}.url{margin-top:6px;color:#777780;font-size:11px;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .empty{text-align:center;color:var(--muted);padding:50px;border:1px dashed var(--line);border-radius:22px}
+    footer{text-align:center;margin-top:42px;color:#686871;font-size:12px}
+    footer b{color:#ff4b61}
+    .status{position:fixed;bottom:18px;left:18px;z-index:5;font-size:11px;color:#777;padding:7px 10px;border:1px solid #1d1d21;border-radius:999px;background:#070708aa;backdrop-filter:blur(8px)}
+    @media(max-width:600px){main{padding-top:42px}.links{grid-template-columns:1fr}.card{min-height:112px}}
+  </style>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="grid"></div><div class="orb a"></div><div class="orb b"></div>
+    <div class="beam one"></div><div class="beam two"></div>
+  </div>
+
+  <main>
+    <header>
+      <div class="badge">ANASX • PRIVATE LINKS</div>
+      <h1>ذا دريـم</h1>
+      <p class="sub">بوابتك إلى روابط AnasX</p>
+    </header>
+
+    <section id="links" class="links" aria-live="polite"></section>
+
+    <footer>© <span id="year"></span> <b>AnasX</b> — ذا دريـم</footer>
+  </main>
+
+  <div id="status" class="status">جارِ تحميل الروابط…</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    /*
+      ضع بيانات مشروع Supabase هنا.
+      public/anon key آمن للاستخدام في الواجهة مع تفعيل RLS.
+      لا تضع service_role key هنا أبداً.
+    */
+    const SUPABASE_URL = "ضع_رابط_مشروع_Supabase_هنا";
+    const SUPABASE_ANON_KEY = "ضع_مفتاح_anon_هنا";
+
+    const linksEl = document.getElementById("links");
+    const statusEl = document.getElementById("status");
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const demoLinks = [
+      {id:"demo-1", name:"تلجرام 1", url:"https://t.me/", icon:"✈"},
+      {id:"demo-2", name:"الرابط 2", url:"https://example.com/", icon:"↗"}
+    ];
+
+    const validConfig = !SUPABASE_URL.includes("ضع_") && !SUPABASE_ANON_KEY.includes("ضع_");
+    let client = null;
+
+    function safeUrl(value){
+      try{
+        const u = new URL(value);
+        return ["https:","http:"].includes(u.protocol) ? u.href : "#";
+      }catch{return "#";}
+    }
+
+    function render(items){
+      linksEl.innerHTML = "";
+      if(!items.length){
+        linksEl.innerHTML = '<div class="empty">لا توجد روابط حالياً.</div>';
+        return;
+      }
+      for(const item of items){
+        const url = safeUrl(item.url);
+        const a = document.createElement("a");
+        a.className = "card";
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.innerHTML = `
+          <div class="icon">${item.icon || "↗"}</div>
+          <div class="name"></div>
+          <div class="url"></div>`;
+        a.querySelector(".name").textContent = item.name || "رابط";
+        a.querySelector(".url").textContent = item.url || "";
+        linksEl.appendChild(a);
+      }
+    }
+
+    async function load(){
+      if(!validConfig){
+        render(demoLinks);
+        statusEl.textContent = "وضع المعاينة — اربط Supabase للتحديث المباشر";
+        return;
+      }
+      client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const {data,error} = await client.from("links").select("id,name,url,icon").order("sort_order",{ascending:true});
+      if(error){
+        console.error(error);
+        statusEl.textContent = "تعذر تحميل الروابط";
+        return;
+      }
+      render(data || []);
+      statusEl.textContent = "متصل • تحديث مباشر";
+      client.channel("links-live")
+        .on("postgres_changes",{event:"*",schema:"public",table:"links"},()=>load())
+        .subscribe();
+    }
+    load();
+  </script>
+</body>
+</html>
