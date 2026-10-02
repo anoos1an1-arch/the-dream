@@ -1,17 +1,49 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ذادريــم</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Tahoma,Arial,sans-serif;min-height:100vh}
-.wrap{width:min(680px,92%);margin:auto;padding:22px 0 35px}.top{height:44px;display:flex;justify-content:flex-end}
-#adminBtn{display:none;background:#090909;color:#fff;border:1px solid #f22;border-radius:12px;padding:10px 18px;font-weight:bold;cursor:pointer;box-shadow:0 0 20px #500}
-header{text-align:center;margin:8px 0 28px}.logo{font-size:clamp(42px,11vw,68px);font-weight:1000;text-shadow:0 0 8px #fff,0 0 22px red,0 0 45px #500}.sub{color:#ddd}
-.links{display:grid;gap:16px}.link{display:block;text-decoration:none;color:#fff;text-align:center;padding:18px;border:1px solid #f22;border-radius:17px;background:linear-gradient(145deg,#171717,#070707);box-shadow:0 9px 0 #350000,0 0 22px #300;font-size:18px;font-weight:900;transition:.18s}.link:hover{transform:translateY(-4px);box-shadow:0 13px 0 #350000,0 0 30px #500}.link:active{transform:translateY(4px)}
-#empty{display:none;text-align:center;color:#888}.remember{text-align:center;margin-top:30px;font-size:18px;font-weight:bold;text-shadow:0 0 12px red}footer{text-align:center;color:#777;font-size:12px;margin-top:38px}
-.modal{display:none;position:fixed;inset:0;background:#000d;backdrop-filter:blur(7px);z-index:5;padding:20px;overflow:auto}.panel{width:min(650px,100%);margin:4vh auto;background:#0b0b0b;border:1px solid #f22;border-radius:20px;padding:22px;box-shadow:0 0 45px #500}.close{float:left;background:#171717;color:#fff;border:1px solid #444;border-radius:9px;padding:7px 12px;cursor:pointer}.panel h2{text-align:center;margin:0 0 18px}.form{display:grid;gap:9px;margin-bottom:18px}input{background:#050505;color:#fff;border:1px solid #511;border-radius:10px;padding:13px;outline:0}button.action{background:#b00;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:bold;cursor:pointer}.status{text-align:center;color:#999;font-size:12px;min-height:18px}.item{background:#111;border:1px solid #311;border-radius:13px;padding:12px;margin-top:10px}.name{font-weight:bold;margin-bottom:7px}.url{font-size:12px;color:#888;word-break:break-all;margin-bottom:9px}.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.row button{background:#181818;color:#fff;border:1px solid #511;border-radius:8px;padding:9px;cursor:pointer}.danger{color:#ff7777!important}@media(max-width:520px){.row{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;color:#fff;background:#030303}
+body{overflow-x:hidden;background:radial-gradient(circle at 50% 0%,rgba(255,0,0,.22),transparent 35%),radial-gradient(circle at 0 80%,rgba(255,0,0,.12),transparent 30%),#030303}
+body:before{content:"";position:fixed;inset:-30%;z-index:0;pointer-events:none;background:repeating-linear-gradient(115deg,transparent 0 65px,rgba(255,0,0,.055) 67px,transparent 70px);animation:bgMove 13s linear infinite}
+body:after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,30,30,.20) 1px,transparent 2px);background-size:54px 54px;animation:dots 18s linear infinite}
+@keyframes bgMove{to{transform:translate3d(120px,80px,0)}}@keyframes dots{to{transform:translate3d(-55px,-65px,0)}}
+
+.wrap{position:relative;z-index:1;width:min(680px,92%);margin:auto;padding:22px 0 36px}
+.top{height:48px;display:flex;justify-content:flex-end;align-items:center}
+#adminBtn{display:none;background:linear-gradient(145deg,#191919,#060606);color:#fff;border:1px solid #ff2222;border-radius:13px;padding:10px 19px;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #420000,0 0 20px rgba(255,0,0,.35);transition:.18s}
+#adminBtn:hover{transform:translateY(-3px);box-shadow:0 8px 0 #420000,0 0 28px rgba(255,0,0,.55)}
+
+header{text-align:center;margin:5px 0 31px}
+.logo{font-size:clamp(42px,11vw,70px);font-weight:1000;letter-spacing:2px;color:#fff;text-shadow:0 2px 0 #777,0 4px 0 #2b2b2b,0 0 8px #fff,0 0 20px #f00,0 0 45px rgba(255,0,0,.6);animation:logoGlow 2.4s ease-in-out infinite}
+@keyframes logoGlow{50%{transform:translateY(-2px);text-shadow:0 3px 0 #777,0 6px 0 #222,0 0 10px #fff,0 0 28px #f00,0 0 55px rgba(255,0,0,.7)}}
+.sub{display:inline-block;margin-top:12px;padding:13px 23px;border-radius:16px;background:linear-gradient(145deg,#1a1a1a,#070707);border:1px solid rgba(255,40,40,.8);box-shadow:0 7px 0 #390000,0 0 22px rgba(255,0,0,.25),inset 0 2px 0 rgba(255,255,255,.08);font-size:16px;font-weight:1000;color:#fff;text-shadow:0 2px 0 #555,0 0 12px rgba(255,0,0,.7);transform:perspective(500px) rotateX(2deg);transition:.25s}
+.sub:hover{transform:perspective(500px) rotateX(0) translateY(-3px);box-shadow:0 10px 0 #390000,0 0 30px rgba(255,0,0,.4)}
+
+.links{display:grid;gap:17px}
+.link{display:block;text-decoration:none;color:#fff;text-align:center;padding:19px 20px;border:1px solid #ff2929;border-radius:18px;background:linear-gradient(145deg,#191919,#060606);box-shadow:0 9px 0 #3a0000,0 0 24px rgba(255,0,0,.2),inset 0 2px 0 rgba(255,255,255,.08);font-size:18px;font-weight:1000;transition:.18s}
+.link:hover{transform:translateY(-5px);box-shadow:0 14px 0 #3a0000,0 0 34px rgba(255,0,0,.42),inset 0 2px 0 rgba(255,255,255,.1)}
+.link:active{transform:translateY(4px);box-shadow:0 4px 0 #3a0000}
+#empty{display:none;text-align:center;color:#888}
+.remember{display:inline-block;position:relative;left:50%;margin-top:32px;padding:14px 28px;border-radius:16px;background:linear-gradient(145deg,#1a1a1a,#070707);border:1px solid rgba(255,45,45,.85);box-shadow:0 8px 0 #390000,0 0 25px rgba(255,0,0,.25),inset 0 2px 0 rgba(255,255,255,.08);font-size:19px;font-weight:1000;color:#fff;text-shadow:0 2px 0 #555,0 0 13px rgba(255,0,0,.75);transform:translateX(-50%) perspective(500px) rotateX(2deg)}
+footer{text-align:center;color:#777;font-size:12px;margin-top:40px}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.84);backdrop-filter:blur(8px);z-index:10;padding:20px;overflow:auto}
+.panel{width:min(650px,100%);margin:4vh auto;background:#0a0a0a;border:1px solid #f22;border-radius:20px;padding:22px;box-shadow:0 0 45px rgba(255,0,0,.35)}
+.close{float:left;background:#171717;color:#fff;border:1px solid #444;border-radius:9px;padding:7px 12px;cursor:pointer}
+.panel h2{text-align:center;margin:0 0 18px}.form{display:grid;gap:9px;margin-bottom:18px}
+input{background:#050505;color:#fff;border:1px solid #511;border-radius:10px;padding:13px;outline:0}
+input:focus{border-color:#f22;box-shadow:0 0 12px rgba(255,0,0,.2)}
+button.action{background:#b40000;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:bold;cursor:pointer}
+.status{text-align:center;color:#999;font-size:12px;min-height:18px}
+.item{background:#111;border:1px solid #311;border-radius:13px;padding:12px;margin-top:10px}
+.name{font-weight:bold;margin-bottom:7px}.url{font-size:12px;color:#888;word-break:break-all;margin-bottom:9px}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.row button{background:#181818;color:#fff;border:1px solid #511;border-radius:8px;padding:9px;cursor:pointer}.danger{color:#ff7777!important}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -19,44 +51,28 @@ header{text-align:center;margin:8px 0 28px}.logo{font-size:clamp(42px,11vw,68px)
 <div class="top"><button id="adminBtn">إدارة</button></div>
 <header><div class="logo">ذاسـويـم</div><div class="sub">صليت على النبي اليوم ﷺ..؟</div></header>
 <div id="links" class="links"></div><div id="empty">لا توجد روابط حالياً</div>
-<div class="remember">اذكر الله 🤍</div><footer>جميع الحقوق محفوظة لـ Anas X ذادريـم ©</footer>
+<div class="remember">اذكر الله 🤍</div>
+<footer>جميع الحقوق محفوظة لـ Anas X ذادريـم ©</footer>
 </div>
+
 <div id="modal" class="modal"><div class="panel">
 <button class="close" id="close">إغلاق</button><h2>إدارة الموقع</h2>
 <div class="form"><input id="newName" placeholder="اسم الرابط"><input id="newUrl" placeholder="https://example.com"><button class="action" id="add">+ إضافة رابط</button><div id="status" class="status"></div></div>
 <div id="adminList"></div>
 </div></div>
+
 <script>
-const URL="https://zgenhukwuqraondkctji.supabase.co";
-const KEY="sb_publishable_iHNEAG2s91ImkGPT8jQDUg_dkmq4dIn";
+const SUPABASE_URL="https://zgenhukwuqraondkctji.supabase.co";
+const SUPABASE_KEY="sb_publishable_iHNEAG2s91ImkGPT8jQDUg_dkmq4dIn";
 const OWNER="anoos1an1@gmail.com";
-const db=supabase.createClient(URL,KEY);
-let owner=false,rows=[];
-const $=id=>document.getElementById(id);
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let owner=false,rows=[];const $=id=>document.getElementById(id);
 function norm(u){u=u.trim();return /^https?:\/\//i.test(u)?u:"https://"+u}
-function render(){
- $("links").innerHTML="";
- $("empty").style.display=rows.length?"none":"block";
- rows.forEach(r=>{let a=document.createElement("a");a.className="link";a.href=norm(r.url);a.target="_blank";a.rel="noopener noreferrer";a.textContent=r.name;$("links").appendChild(a)});
- if(owner) adminRender();
-}
-function adminRender(){
- $("adminList").innerHTML="";
- rows.forEach(r=>{
-  let d=document.createElement("div");d.className="item";
-  d.innerHTML='<div class="name"></div><div class="url"></div><div class="row"><button>تغيير الاسم</button><button>تغيير الرابط</button><button class="danger">حذف</button></div>';
-  d.querySelector(".name").textContent=r.name;d.querySelector(".url").textContent=r.url;
-  d.querySelectorAll("button")[0].onclick=async()=>{let x=prompt("الاسم الجديد:",r.name);if(x&&x.trim()){let z=await db.from("links").update({name:x.trim(),updated_at:new Date().toISOString()}).eq("id",r.id);if(z.error)alert(z.error.message);await load()}};
-  d.querySelectorAll("button")[1].onclick=async()=>{let x=prompt("الرابط الجديد:",r.url);if(x&&x.trim()){let z=await db.from("links").update({url:norm(x),updated_at:new Date().toISOString()}).eq("id",r.id);if(z.error)alert(z.error.message);await load()}};
-  d.querySelectorAll("button")[2].onclick=async()=>{if(confirm('حذف "'+r.name+'"?')){let z=await db.from("links").delete().eq("id",r.id);if(z.error)alert(z.error.message);await load()}};
-  $("adminList").appendChild(d);
- })
-}
+function render(){ $("links").innerHTML="";$("empty").style.display=rows.length?"none":"block";rows.forEach(r=>{let a=document.createElement("a");a.className="link";a.href=norm(r.url);a.target="_blank";a.rel="noopener noreferrer";a.textContent=r.name;$("links").appendChild(a)});if(owner)adminRender()}
+function adminRender(){$("adminList").innerHTML="";rows.forEach(r=>{let d=document.createElement("div");d.className="item";d.innerHTML='<div class="name"></div><div class="url"></div><div class="row"><button>تغيير الاسم</button><button>تغيير الرابط</button><button class="danger">حذف</button></div>';d.querySelector(".name").textContent=r.name;d.querySelector(".url").textContent=r.url;d.querySelectorAll("button")[0].onclick=async()=>{let x=prompt("الاسم الجديد:",r.name);if(x&&x.trim()){let z=await db.from("links").update({name:x.trim(),updated_at:new Date().toISOString()}).eq("id",r.id);if(z.error)alert(z.error.message);await load()}};d.querySelectorAll("button")[1].onclick=async()=>{let x=prompt("الرابط الجديد:",r.url);if(x&&x.trim()){let z=await db.from("links").update({url:norm(x),updated_at:new Date().toISOString()}).eq("id",r.id);if(z.error)alert(z.error.message);await load()}};d.querySelectorAll("button")[2].onclick=async()=>{if(confirm('حذف "'+r.name+'"?')){let z=await db.from("links").delete().eq("id",r.id);if(z.error)alert(z.error.message);await load()}};$("adminList").appendChild(d)})}
 async function load(){let z=await db.from("links").select("*").order("sort_order",{ascending:true}).order("created_at",{ascending:true});if(!z.error){rows=z.data||[];render()}}
-async function session(){let z=await db.auth.getSession();owner=z.data.session?.user?.email?.toLowerCase()===OWNER.toLowerCase();$("adminBtn").style.display=owner?"block":"none"}
-$("adminBtn").onclick=()=>{if(owner){$("modal").style.display="block";adminRender()}}
-$("close").onclick=()=>$("modal").style.display="none";
-$("modal").onclick=e=>{if(e.target===$("modal"))$("modal").style.display="none"};
+async function session(){let z=await db.auth.getSession();let email=z.data.session?.user?.email?.trim().toLowerCase();owner=email===OWNER.toLowerCase();$("adminBtn").style.display=owner?"block":"none"}
+$("adminBtn").onclick=()=>{if(owner){$("modal").style.display="block";adminRender()}};$("close").onclick=()=>$("modal").style.display="none";$("modal").onclick=e=>{if(e.target===$("modal"))$("modal").style.display="none"};
 $("add").onclick=async()=>{if(!owner)return;let n=$("newName").value.trim(),u=$("newUrl").value.trim();if(!n||!u){$("status").textContent="اكتب الاسم والرابط";return}let max=rows.reduce((m,r)=>Math.max(m,Number(r.sort_order)||0),-1);let z=await db.from("links").insert({name:n,url:norm(u),sort_order:max+1});if(z.error){$("status").textContent=z.error.message;return}$("newName").value="";$("newUrl").value="";$("status").textContent="تمت الإضافة";await load()};
 db.auth.onAuthStateChange(async()=>{await session();await load()});
 (async()=>{await session();await load();db.channel("links-live").on("postgres_changes",{event:"*",schema:"public",table:"links"},load).subscribe()})();
