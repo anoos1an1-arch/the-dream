@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#030303">
-<title>ذادريـم | Anas X</title>
+<title>ذاسـويـم | Anas X</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:#fff;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(circle at 50% 0,#ff003c2b,transparent 30%),#030303;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:-30%;z-index:-2;pointer-events:none;background:linear-gradient(115deg,transparent 42%,#ff003c2b 43%,transparent 44%),linear-gradient(35deg,transparent 47%,#ff003c1f 48%,transparent 49%),linear-gradient(155deg,transparent 56%,#ff003c1a 57%,transparent 58%);animation:d 13s linear infinite;transform:rotate(3deg)}@keyframes d{to{transform:translate(5%,3%) rotate(3deg)}}.grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.13;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:42px 42px}
 .wrap{width:min(720px,calc(100% - 20px));margin:auto;padding:38px 0 20px}.hero{text-align:center;margin-bottom:28px}.logo{margin:0;font-size:clamp(44px,13vw,82px);font-weight:1000;letter-spacing:2px;text-shadow:0 2px 0 #8b0022,0 6px 0 #570016,0 8px 28px #ff003caa,0 0 38px #ff003c88;transform:perspective(500px) rotateX(8deg)}.logo:after{content:"";display:block;width:150px;height:4px;margin:13px auto 0;border-radius:9px;background:#ff123f;box-shadow:0 0 8px #ff123f,0 0 22px #ff123f}.prophet{margin:20px 0 0;font-size:clamp(19px,5vw,28px);font-weight:900;line-height:1.7;text-shadow:0 3px 14px #ff003c88;transform:perspective(500px) rotateX(7deg)}.prophet span{display:inline-block;padding:6px 14px;border:1px solid #ff123f55;border-radius:16px;background:linear-gradient(145deg,#ff123f1f,#0008);box-shadow:inset 0 1px #fff1,0 8px 25px #ff003c1f}
 #links{display:flex;flex-direction:column;gap:16px}.link-card{position:relative;display:flex;align-items:center;gap:12px;min-height:68px;padding:14px 18px;color:#fff;text-decoration:none;border:1px solid #ff123f55;border-radius:18px;background:linear-gradient(145deg,#1e080dee,#060606e8);box-shadow:inset 0 1px #fff1,0 10px 30px #0008,0 0 18px #ff003c1a;transform:perspective(700px) rotateX(2deg);transition:.25s;overflow:hidden}.link-card:hover{transform:perspective(700px) translateY(-4px);border-color:#ff123fcc;box-shadow:0 14px 35px #0008,0 0 30px #ff003c47}.link-icon{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(145deg,#ff1645,#74001e);box-shadow:0 5px 14px #ff003c59,inset 0 1px #fff4;font-size:19px}.link-name{flex:1;text-align:center;font-size:20px;font-weight:900;text-shadow:0 2px 8px #ff003c59;overflow-wrap:anywhere}.arrow{opacity:.7;font-size:21px}.dhikr{margin:25px 0 34px;padding:19px 16px;text-align:center;border-radius:20px;border:1px solid #ff123f66;background:linear-gradient(145deg,#ff003c1f,#080808c7);box-shadow:inset 0 1px #fff1,0 10px 28px #0008,0 0 25px #ff003c1f;transform:perspective(600px) rotateX(4deg)}.dhikr-text{font-size:clamp(22px,6vw,31px);font-weight:1000;text-shadow:0 3px 15px #ff003c88}.dhikr-sub{margin-top:6px;color:#cfcfcf;font-size:13px}footer{text-align:center;padding:5px 0 15px;color:#aaa;font-size:14px}footer strong{color:#fff;text-shadow:0 0 12px #ff003c80}.admin-trigger{display:block;margin:18px auto 0;border:0;background:transparent;color:#555;font-size:11px;cursor:pointer;padding:8px}.admin-trigger:hover{color:#aaa}
-.modal{position:fixed;inset:0;z-index:20;display:none;place-items:center;padding:18px;background:#000c;backdrop-filter:blur(9px)}.modal.open{display:grid}.panel{width:min(620px,100%);max-height:90vh;overflow:auto;padding:22px;border:1px solid #ff123f73;border-radius:22px;background:#090909;box-shadow:0 0 50px #ff003c33}.panel h2{text-align:center}.field{margin-bottom:12px}.field label{display:block;margin-bottom:6px;color:#ccc;font-size:13px}.field input{width:100%;padding:13px 14px;color:#fff;border:1px solid #3b1a21;border-radius:12px;outline:0;background:#111}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{flex:1;min-width:110px;padding:12px 14px;border:1px solid #ff123f66;border-radius:12px;color:#fff;background:linear-gradient(145deg,#4b0717,#160308);cursor:pointer;font-weight:800}.btn.primary{background:linear-gradient(145deg,#ff1746,#81001f)}.btn.danger{background:linear-gradient(145deg,#3a0a0a,#130303)}.status{text-align:center;min-height:20px;color:#bbb;font-size:13px;margin:10px 0}.admin-list{margin-top:20px;display:grid;gap:10px}.admin-row{padding:12px;border:1px solid #281016;border-radius:13px;background:#0f0b0d}.row-name{font-weight:900;margin-bottom:6px}.row-url{direction:ltr;text-align:left;color:#aaa;font-size:12px;overflow-wrap:anywhere}.close{float:left;width:34px;height:34px;border:1px solid #35131b;border-radius:50%;color:#fff;background:#12080b;cursor:pointer}.hidden{display:none!important}@media(max-width:480px){.wrap{padding-top:28px}.link-card{min-height:62px;padding:11px 13px}.link-name{font-size:17px}.panel{padding:17px}}
+.modal{position:fixed;inset:0;z-index:20;display:none;place-items:center;padding:18px;background:#000c;backdrop-filter:blur(9px)}.modal.open{display:grid}.panel{width:min(620px,100%);max-height:90vh;overflow:auto;padding:22px;border:1px solid #ff123f73;border-radius:22px;background:#090909;box-shadow:0 0 50px #ff003c33}.panel h2{text-align:center}.field{margin-bottom:12px}.field label{display:block;margin-bottom:6px;color:#ccc;font-size:13px}.field input{width:100%;padding:13px 14px;color:#fff;border:1px solid #3b1a21;border-radius:12px;outline:0;background:#111}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{flex:1;min-width:110px;padding:12px 14px;border:1px solid #ff123f66;border-radius:12px;color:#fff;background:linear-gradient(145deg,#4b0717,#160308);cursor:pointer;font-weight:800}.btn.primary{background:linear-gradient(145deg,#ff1746,#81001f)}.btn.danger{background:linear-gradient(145deg,#3a0a0a,#130303)}.btn:disabled{opacity:.6;cursor:not-allowed}.status{text-align:center;min-height:20px;color:#bbb;font-size:13px;margin:10px 0;line-height:1.7}.admin-list{margin-top:20px;display:grid;gap:10px}.admin-row{padding:12px;border:1px solid #281016;border-radius:13px;background:#0f0b0d}.row-name{font-weight:900;margin-bottom:6px}.row-url{direction:ltr;text-align:left;color:#aaa;font-size:12px;overflow-wrap:anywhere}.close{float:left;width:34px;height:34px;border:1px solid #35131b;border-radius:50%;color:#fff;background:#12080b;cursor:pointer}.hidden{display:none!important}@media(max-width:480px){.wrap{padding-top:28px}.link-card{min-height:62px;padding:11px 13px}.link-name{font-size:17px}.panel{padding:17px}}
 </style>
 </head>
 <body>
@@ -26,118 +26,339 @@ body:before{content:"";position:fixed;inset:-30%;z-index:-2;pointer-events:none;
 <footer>جميع الحقوق محفوظة لـ <strong>Anas X</strong> © <span id="year"></span><button class="admin-trigger" id="adminTrigger">إدارة الموقع</button></footer>
 </main>
 
-<div class="modal" id="adminModal"><div class="panel">
+<div class="modal" id="adminModal">
+<div class="panel">
 <button class="close" id="closeModal">×</button>
+
 <div id="loginBox">
 <h2>🔐 دخول المالك</h2>
-<div class="field"><label>البريد الإلكتروني</label><input id="loginEmail" type="email" value="anoos1an1@gmail.com"></div>
-<div class="field"><label>كلمة المرور</label><input id="loginPassword" type="password"></div>
+<div class="field"><label>البريد الإلكتروني</label><input id="loginEmail" type="email" value="anoos1an1@gmail.com" autocomplete="username"></div>
+<div class="field"><label>كلمة المرور</label><input id="loginPassword" type="password" autocomplete="current-password"></div>
 <div class="buttons"><button class="btn primary" id="loginBtn">دخول</button></div>
 <div class="status" id="loginStatus"></div>
 </div>
+
 <div id="adminBox" class="hidden">
 <h2>⚙️ إدارة الروابط</h2>
 <div class="field"><label>اسم الرابط</label><input id="linkName" placeholder="مثال: Telegram"></div>
 <div class="field"><label>الرابط</label><input id="linkUrl" type="url" placeholder="https://example.com"></div>
 <input id="editingId" type="hidden">
 <div class="buttons"><button class="btn primary" id="saveBtn">حفظ الرابط</button><button class="btn" id="clearBtn">تفريغ</button><button class="btn danger" id="logoutBtn">تسجيل خروج</button></div>
-<div class="status" id="adminStatus"></div><div class="admin-list" id="adminList"></div>
-</div></div></div>
+<div class="status" id="adminStatus"></div>
+<div class="admin-list" id="adminList"></div>
+</div>
+</div>
+</div>
 
 <script>
 const SUPABASE_URL="https://zgenhukwuqraondkctji.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_iHNEAG2s91ImkGPT8jQDUg_dkmq4dIn";
 const OWNER_EMAIL="anoos1an1@gmail.com";
-const {createClient}=window.supabase,db=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const $=id=>document.getElementById(id),linksEl=$("links");
-$("year").textContent=new Date().getFullYear();let currentLinks=[];
 
-function status(el,msg,err=false){el.textContent=msg;el.style.color=err?"#ff6b86":"#bbb"}
-function validUrl(v){try{let u=new URL(v);return ["http:","https:"].includes(u.protocol)?u.href:null}catch{return null}}
+const {createClient}=window.supabase;
+const db=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
+  auth:{
+    persistSession:true,
+    autoRefreshToken:true,
+    detectSessionInUrl:true
+  }
+});
+
+const $=id=>document.getElementById(id);
+const linksEl=$("links");
+$("year").textContent=new Date().getFullYear();
+let currentLinks=[];
+
+function status(el,msg,err=false){
+  el.textContent=msg;
+  el.style.color=err?"#ff6b86":"#bbb";
+}
+
+function validUrl(v){
+  try{
+    const u=new URL(v);
+    return ["http:","https:"].includes(u.protocol)?u.href:null;
+  }catch{
+    return null;
+  }
+}
+
+function readableAuthError(error){
+  const msg=(error?.message||"").trim();
+  const code=error?.code||"";
+  const statusCode=error?.status||"";
+
+  if(!msg) return "حدث خطأ غير معروف أثناء تسجيل الدخول.";
+  if(/invalid login credentials/i.test(msg)) return "البريد أو كلمة المرور غير صحيحة.";
+  if(/email not confirmed/i.test(msg)) return "البريد الإلكتروني غير مُؤكَّد في Supabase.";
+  if(/email provider is disabled/i.test(msg)) return "تسجيل الدخول بالبريد وكلمة المرور غير مفعّل في Supabase.";
+  if(/invalid api key|apikey/i.test(msg)) return "مفتاح Supabase المستخدم في الموقع غير صحيح.";
+  if(/failed to fetch|network/i.test(msg)) return "تعذر الاتصال بـ Supabase. تحقق من الإنترنت وإعدادات المشروع.";
+  if(/rate limit/i.test(msg)) return "تم تجاوز حد المحاولات مؤقتًا. انتظر قليلًا قبل إعادة المحاولة.";
+  return `خطأ Supabase: ${msg}${code?` (${code})`:""}${statusCode?` [${statusCode}]`:""}`;
+}
 
 function render(){
   linksEl.innerHTML="";
-  if(!currentLinks.length){let e=document.createElement("div");e.style="text-align:center;color:#777;padding:15px";e.textContent="لا توجد روابط حاليًا";linksEl.append(e);return}
+  if(!currentLinks.length){
+    const e=document.createElement("div");
+    e.style="text-align:center;color:#777;padding:15px";
+    e.textContent="لا توجد روابط حاليًا";
+    linksEl.append(e);
+    return;
+  }
+
   currentLinks.forEach(x=>{
-    let u=validUrl(x.url);if(!u)return;
-    let a=document.createElement("a");a.className="link-card";a.href=u;a.target="_blank";a.rel="noopener noreferrer";
-    let i=document.createElement("span");i.className="link-icon";i.textContent="↗";
-    let n=document.createElement("span");n.className="link-name";n.textContent=x.name;
-    let ar=document.createElement("span");ar.className="arrow";ar.textContent="‹";
-    a.append(i,n,ar);linksEl.append(a)
-  })
+    const u=validUrl(x.url);
+    if(!u)return;
+    const a=document.createElement("a");
+    a.className="link-card";
+    a.href=u;
+    a.target="_blank";
+    a.rel="noopener noreferrer";
+
+    const i=document.createElement("span");
+    i.className="link-icon";
+    i.textContent="↗";
+
+    const n=document.createElement("span");
+    n.className="link-name";
+    n.textContent=x.name;
+
+    const ar=document.createElement("span");
+    ar.className="arrow";
+    ar.textContent="‹";
+
+    a.append(i,n,ar);
+    linksEl.append(a);
+  });
 }
 
 async function loadLinks(){
-  let {data,error}=await db.from("links").select("id,name,url,sort_order,created_at,updated_at").order("sort_order",{ascending:true}).order("created_at",{ascending:true});
-  if(error){console.error(error);return}
-  currentLinks=data||[];render();renderAdmin()
+  const {data,error}=await db.from("links")
+    .select("id,name,url,sort_order,created_at,updated_at")
+    .order("sort_order",{ascending:true})
+    .order("created_at",{ascending:true});
+
+  if(error){
+    console.error("loadLinks error:",error);
+    return;
+  }
+
+  currentLinks=data||[];
+  render();
+  renderAdmin();
 }
 
 function renderAdmin(){
   $("adminList").innerHTML="";
+
   currentLinks.forEach(x=>{
-    let r=document.createElement("div");r.className="admin-row";
-    let n=document.createElement("div");n.className="row-name";n.textContent=x.name;
-    let u=document.createElement("div");u.className="row-url";u.textContent=x.url;
-    let bs=document.createElement("div");bs.className="buttons";
-    let e=document.createElement("button");e.className="btn";e.textContent="تعديل";e.onclick=()=>edit(x);
-    let d=document.createElement("button");d.className="btn danger";d.textContent="حذف";d.onclick=()=>del(x.id);
-    bs.append(e,d);r.append(n,u,bs);$("adminList").append(r)
-  })
+    const r=document.createElement("div");
+    r.className="admin-row";
+
+    const n=document.createElement("div");
+    n.className="row-name";
+    n.textContent=x.name;
+
+    const u=document.createElement("div");
+    u.className="row-url";
+    u.textContent=x.url;
+
+    const bs=document.createElement("div");
+    bs.className="buttons";
+
+    const e=document.createElement("button");
+    e.className="btn";
+    e.textContent="تعديل";
+    e.onclick=()=>edit(x);
+
+    const d=document.createElement("button");
+    d.className="btn danger";
+    d.textContent="حذف";
+    d.onclick=()=>del(x.id);
+
+    bs.append(e,d);
+    r.append(n,u,bs);
+    $("adminList").append(r);
+  });
 }
 
-function edit(x){$("linkName").value=x.name;$("linkUrl").value=x.url;$("editingId").value=x.id;$("saveBtn").textContent="تحديث الرابط"}
-function clearForm(){$("linkName").value="";$("linkUrl").value="";$("editingId").value="";$("saveBtn").textContent="حفظ الرابط";status($("adminStatus"),"")}
+function edit(x){
+  $("linkName").value=x.name;
+  $("linkUrl").value=x.url;
+  $("editingId").value=x.id;
+  $("saveBtn").textContent="تحديث الرابط";
+}
+
+function clearForm(){
+  $("linkName").value="";
+  $("linkUrl").value="";
+  $("editingId").value="";
+  $("saveBtn").textContent="حفظ الرابط";
+  status($("adminStatus"),"");
+}
 
 async function save(){
-  let name=$("linkName").value.trim(),url=validUrl($("linkUrl").value.trim());
+  const name=$("linkName").value.trim();
+  const url=validUrl($("linkUrl").value.trim());
+
   if(!name)return status($("adminStatus"),"اكتب اسم الرابط أولًا",true);
   if(!url)return status($("adminStatus"),"اكتب رابطًا صحيحًا يبدأ بـ https:// أو http://",true);
-  $("saveBtn").disabled=true;let error;
+
+  $("saveBtn").disabled=true;
+
+  let error;
+
   if($("editingId").value){
-    ({error}=await db.from("links").update({name,url,updated_at:new Date().toISOString()}).eq("id",$("editingId").value))
+    ({error}=await db.from("links")
+      .update({name,url,updated_at:new Date().toISOString()})
+      .eq("id",$("editingId").value));
   }else{
-    let order=currentLinks.length?Math.max(...currentLinks.map(x=>Number(x.sort_order)||0))+1:0;
-    ({error}=await db.from("links").insert({name,url,sort_order:order}))
+    const order=currentLinks.length
+      ?Math.max(...currentLinks.map(x=>Number(x.sort_order)||0))+1
+      :0;
+
+    ({error}=await db.from("links")
+      .insert({name,url,sort_order:order}));
   }
+
   $("saveBtn").disabled=false;
-  if(error){console.error(error);return status($("adminStatus"),"لم تتم العملية. تأكد من تسجيل دخول المالك.",true)}
-  clearForm();status($("adminStatus"),"تم الحفظ بنجاح ✓");loadLinks()
+
+  if(error){
+    console.error("save error:",error);
+    return status($("adminStatus"),`لم تتم العملية: ${error.message}`,true);
+  }
+
+  clearForm();
+  status($("adminStatus"),"تم الحفظ بنجاح ✓");
+  await loadLinks();
 }
 
 async function del(id){
   if(!confirm("هل تريد حذف هذا الرابط؟"))return;
-  let {error}=await db.from("links").delete().eq("id",id);
-  if(error)return status($("adminStatus"),"تعذر حذف الرابط",true);
-  status($("adminStatus"),"تم حذف الرابط ✓");loadLinks()
+
+  const {error}=await db.from("links").delete().eq("id",id);
+
+  if(error){
+    console.error("delete error:",error);
+    return status($("adminStatus"),`تعذر حذف الرابط: ${error.message}`,true);
+  }
+
+  status($("adminStatus"),"تم حذف الرابط ✓");
+  await loadLinks();
 }
 
 async function checkOwner(){
-  let {data}=await db.auth.getUser(),u=data?.user;
-  if(u&&u.email?.toLowerCase()===OWNER_EMAIL){
-    $("loginBox").classList.add("hidden");$("adminBox").classList.remove("hidden");loadLinks();return
+  const {data,error}=await db.auth.getUser();
+
+  if(error){
+    console.error("getUser error:",error);
+    $("loginBox").classList.remove("hidden");
+    $("adminBox").classList.add("hidden");
+    return;
   }
-  $("loginBox").classList.remove("hidden");$("adminBox").classList.add("hidden")
+
+  const u=data?.user;
+
+  if(u && u.email?.toLowerCase()===OWNER_EMAIL.toLowerCase()){
+    $("loginBox").classList.add("hidden");
+    $("adminBox").classList.remove("hidden");
+    await loadLinks();
+    return;
+  }
+
+  $("loginBox").classList.remove("hidden");
+  $("adminBox").classList.add("hidden");
 }
 
-$("adminTrigger").onclick=async()=>{$("adminModal").classList.add("open");status($("loginStatus"),"");await checkOwner()};
-$("closeModal").onclick=()=>{$("adminModal").classList.remove("open")};
-$("adminModal").onclick=e=>{if(e.target===$("adminModal"))$("adminModal").classList.remove("open")};
-
-$("loginBtn").onclick=async()=>{
-  let email=$("loginEmail").value.trim(),password=$("loginPassword").value;
-  if(!email||!password)return status($("loginStatus"),"اكتب البريد وكلمة المرور",true);
-  status($("loginStatus"),"جارٍ تسجيل الدخول...");
-  let {error}=await db.auth.signInWithPassword({email,password});
-  if(error)return status($("loginStatus"),"فشل تسجيل الدخول. تأكد من البيانات.",true);
-  $("loginPassword").value="";checkOwner()
+$("adminTrigger").onclick=async()=>{
+  $("adminModal").classList.add("open");
+  status($("loginStatus"),"");
+  await checkOwner();
 };
-$("logoutBtn").onclick=async()=>{await db.auth.signOut();clearForm();checkOwner()};
-$("saveBtn").onclick=save;$("clearBtn").onclick=clearForm;
-db.auth.onAuthStateChange(()=>checkOwner());
+
+$("closeModal").onclick=()=>{
+  $("adminModal").classList.remove("open");
+};
+
+$("adminModal").onclick=e=>{
+  if(e.target===$("adminModal"))$("adminModal").classList.remove("open");
+};
+
+async function doLogin(){
+  const email=$("loginEmail").value.trim();
+  const password=$("loginPassword").value;
+
+  if(!email||!password){
+    return status($("loginStatus"),"اكتب البريد وكلمة المرور",true);
+  }
+
+  $("loginBtn").disabled=true;
+  status($("loginStatus"),"جارٍ تسجيل الدخول...");
+
+  try{
+    const {data,error}=await db.auth.signInWithPassword({email,password});
+
+    if(error){
+      console.error("Supabase login error:",error);
+      return status($("loginStatus"),readableAuthError(error),true);
+    }
+
+    if(!data?.user){
+      return status($("loginStatus"),"تمت محاولة الدخول لكن لم يُرجع Supabase مستخدمًا.",true);
+    }
+
+    if(data.user.email?.toLowerCase()!==OWNER_EMAIL.toLowerCase()){
+      await db.auth.signOut();
+      return status($("loginStatus"),"تم تسجيل الدخول، لكن هذا الحساب ليس حساب المالك.",true);
+    }
+
+    $("loginPassword").value="";
+    status($("loginStatus"),"تم تسجيل الدخول ✓");
+    await checkOwner();
+
+  }catch(error){
+    console.error("Unexpected login error:",error);
+    status($("loginStatus"),`خطأ: ${error?.message||error}`,true);
+  }finally{
+    $("loginBtn").disabled=false;
+  }
+}
+
+$("loginBtn").onclick=doLogin;
+
+$("loginPassword").addEventListener("keydown",e=>{
+  if(e.key==="Enter")doLogin();
+});
+
+$("logoutBtn").onclick=async()=>{
+  const {error}=await db.auth.signOut();
+  if(error){
+    status($("adminStatus"),`تعذر تسجيل الخروج: ${error.message}`,true);
+    return;
+  }
+  clearForm();
+  await checkOwner();
+};
+
+$("saveBtn").onclick=save;
+$("clearBtn").onclick=clearForm;
+
+db.auth.onAuthStateChange((event,session)=>{
+  console.log("Auth event:",event,session?.user?.email||"no user");
+  setTimeout(()=>checkOwner(),0);
+});
+
 loadLinks();
-db.channel("links-live").on("postgres_changes",{event:"*",schema:"public",table:"links"},()=>loadLinks()).subscribe();
+
+db.channel("links-live")
+  .on("postgres_changes",{event:"*",schema:"public",table:"links"},()=>{
+    loadLinks();
+  })
+  .subscribe((status)=>{
+    console.log("Realtime status:",status);
+  });
 </script>
 </body>
 </html>
